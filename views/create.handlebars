@@ -1,0 +1,24 @@
+{{!-- creating new posts --}}
+<section class = "post">
+    <div class = "header">
+        <h1> Time to create a new Post</h1>
+    </div>
+
+ <form class = "editform">
+    <div class = "title">
+       <label class = "Usertitle"> Blog Title </label>
+       {{!--add input to add from js  --}}
+    </div>
+    <div class = "Usercomment"> 
+      <label>User Content</label>
+       {{!-- <textarea> need to add handle bars</textarea>  use post.content --}}
+    </div>
+    {{!-- button to edit and delete post --}}
+    <button class = "updatebtn"> Update Post </button>
+    <button class = "deletebtn"> Delete Post </button>
+ </form>
+</section>
+
+{{!--call onto both delete and edit JS --}} 
+<script scr ="/js/delete.js"></script>
+<script scr = "/js/edit.js"></script>

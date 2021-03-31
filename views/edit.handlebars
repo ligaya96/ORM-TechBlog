@@ -1,1 +1,23 @@
-{{!-- editing post --}}
+{{!-- editing post WHEN I click on one of my existing posts in the dashboard
+THEN I am able to delete or update my post and taken back to an updated dashboard --}}
+
+<section class = "post">
+    <div class = "editheader">
+        <h1> Editing Post </h1>
+    </div>  
+<form class = "newform">
+    <div class = "title">
+       <label class = "Usertitle"> Blog Title</label>
+       {{!--add input to add from js  --}}
+    </div>
+    <div class = "Usercomment"> 
+      <label>User Content</label>
+       <textarea></textarea>
+    </div>
+    {{!-- button to create post --}}
+    <button class = "createbtn"> Create Post </button>
+ </form>
+</section>
+
+{{!-- gitta call onto create.js --}}
+<script scr ="/js/create.js"></script>

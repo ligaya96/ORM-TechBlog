@@ -1,0 +1,21 @@
+{{!-- User comment section --}}
+
+{{> multipost PostCard}}
+{{#if loggedIn}}
+<form action="comment">
+    <div class = "commenttext">
+      <textarea>User comment</textarea>
+    </div>
+    {{!-- submit button  --}}
+    <div>
+     <button type="submitBtn">Submit?</button>
+    </div>
+</form>
+{{/if}}
+{{> usercomment comments}}
+
+{{!-- need to call to JS --}}
+{{#if loggedIn}}
+<script src="/js/comment.js"></script>
+{{/if}}
+
