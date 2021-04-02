@@ -1,5 +1,5 @@
 {
-  "name": "orm-techblog",
+  "name": "mvc-techblog",
   "version": "1.0.0",
   "description": "a tech blog",
   "main": "server.js",

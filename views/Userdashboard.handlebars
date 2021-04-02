@@ -1,10 +1,22 @@
 {{!-- users dashboard --}}
+<section class="new-post-section">
+    <button type="submit" class="btn" id="createpost"> + New Post</button>
+</section>
 
 
-{{!-- create posts --}}
+{{#if posts.length}}
+<section>
+    <h2>Your Dashboard</h2>
+    <ul class="display-post">
+        {{#each posts as |post|}}
+        <li>
+            {{> multipost PostCard}}
+            <a href="/dashboard/edit/{{post.id}}" class="edit-link"> Edit Post? </a>
+        </li>
+        {{/each}}
+    </ul>
+</section>
+{{/if}}
 
-{{!-- shows previous posts --}}
-
-{{!-- edit posts --}}
 
 <script src="./js/profile.js"></script>

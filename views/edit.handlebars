@@ -1,23 +1,29 @@
 {{!-- editing post WHEN I click on one of my existing posts in the dashboard
 THEN I am able to delete or update my post and taken back to an updated dashboard --}}
 
-<section class = "post">
-    <div class = "editheader">
+<section class = "edit-post">
+    <div class = "edit-header">
         <h1> Editing Post </h1>
     </div>  
-<form class = "newform">
-    <div class = "title">
-       <label class = "Usertitle"> Blog Title</label>
-       {{!--add input to add from js  --}}
-    </div>
-    <div class = "Usercomment"> 
-      <label>User Content</label>
-       <textarea></textarea>
-    </div>
-    {{!-- button to create post --}}
-    <button class = "createbtn"> Create Post </button>
- </form>
-</section>
+     <div class="form-section">
+            <form class="edit-post-form">
+                <div class="post-title-section">
+                    <label for="post-title">Title</label>
+                    <input type="text" name="post-title" id="post-title" value="{{post.title}}" />
+                </div>
+                <div class="post-content">
+                    <label for="post-content">Content</label>
+                    <textarea class="entry-field" id="post-content" name="post-content">{{post.content}}</textarea>
+                </div>
+                <button type="submit">Update?</button>
+                <button type="delete" class="delete-post">Delete</button>
+            </form>
+        </div>
+    </section>
+
 
 {{!-- gitta call onto create.js --}}
-<script scr ="/js/create.js"></script>
+{{#if loggedIn}}
+<script src="/public/js/edit.js"></script>
+<script src="/public/js/delete.js"></script>
+{{/if}}

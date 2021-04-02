@@ -1,24 +1,21 @@
 {{!-- creating new posts --}}
-<section class = "post">
-    <div class = "header">
-        <h1> Time to create a new Post</h1>
-    </div>
+<section class = "new-post">
+   <div class="form-heading">
+   <h2>Create New Blog Post</h2>
+   </div>
+   <div class="form-section">
+      <form class="new-form">
+                <div class="post-title-section">
+                    <label for="post-title">Title</label>
+                    <input type="text" id="post-title" name="post-title" />
+                </div>
+                <div class="post-content">
+                    <label for="post-content">Content</label>
+                    <textarea class="entry-field" id="post-content" name="post-content"></textarea>
+                </div>
+                <button type="submit" class="btn">Create</button>
+            </form>
+        </div>
+    </section>
 
- <form class = "editform">
-    <div class = "title">
-       <label class = "Usertitle"> Blog Title </label>
-       {{!--add input to add from js  --}}
-    </div>
-    <div class = "Usercomment"> 
-      <label>User Content</label>
-       {{!-- <textarea> need to add handle bars</textarea>  use post.content --}}
-    </div>
-    {{!-- button to edit and delete post --}}
-    <button class = "updatebtn"> Update Post </button>
-    <button class = "deletebtn"> Delete Post </button>
- </form>
-</section>
-
-{{!--call onto both delete and edit JS --}} 
-<script scr ="/js/delete.js"></script>
-<script scr = "/js/edit.js"></script>
+<script src="/js/create.js"></script>
