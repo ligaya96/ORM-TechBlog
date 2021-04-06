@@ -1,14 +1,13 @@
 {{!-- User comment section --}}
-
 {{> multipost PostCard}}
 {{#if loggedIn}}
-<form ="comment">
-    <div class = "commenttext">
-      <textarea>User comment</textarea>
-    </div>
-    {{!-- submit button  --}}
+<form class ="comment">
+   <div class = "commenttext">
+    <textarea name ="comment-user"></textarea>
+   </div>
+{{!-- submit button  --}}
     <div>
-     <button type="submitBtn">Submit?</button>
+     <button type="submit">Submit?</button>
     </div>
 </form>
 {{/if}}
