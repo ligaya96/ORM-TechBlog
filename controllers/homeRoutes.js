@@ -9,36 +9,34 @@ router.get('/', (req, res) => {
     model: Comment,
    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
     include: {
-       model: User,
-       attributes: ['username']}
-        },
-          {
-                  model: User,
-                  attributes: ['username']
-              }
-          ]
-      })
-      .then(dbPostData => {
-        if (!dbPostData) {
-          res.status(404).json({
-              message: "No Posts Available"
-          });
-          return;
-        }
-        const posts = dbPostData.map(post => post.get({
-            plain: true
-        }));
-
-        res.render('homepage', {
-            posts,
-            loggedIn: req.session.loggedIn
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+    model: User,
+    attributes: ['username']}
+    },
+   {
+    model: User,
+    attributes: ['username']
+    }
+  ]
+}).then(dbPostData => {
+    if (!dbPostData) {
+   res.status(404).json({
+     message: "No Posts Available"
+    });
+       return;
+  }
+const posts = dbPostData.map(post => post.get({
+     plain: true
+  }));
+res.render('homepage', {
+      posts,
+      loggedIn: req.session.loggedIn
+    });
+}).catch(err => {
+  console.log(err);
+  res.status(500).json(err);
     });
 });
+
 router.get('/post/:id', (req, res) => {
   Post.findOne({
     where : {
@@ -68,7 +66,7 @@ router.get('/post/:id', (req, res) => {
   const post = dbPostData.get({
       plain: true
   }); 
-  res.render("user-post", {
+  res.render("userpost", {
       post,
       loggedIn: req.session.loggedIn,
   });
@@ -77,15 +75,7 @@ router.get('/post/:id', (req, res) => {
   res.status(500).json(err);
 });
 
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-  }
-
-  res.render('login');
-});
-
+//signing up
 router.get('/sign-up', (req, res) => {
   if (req.session.loggedIn) {
       res.redirect('/');
@@ -95,12 +85,14 @@ router.get('/sign-up', (req, res) => {
   res.render('sign-up');
 });
 
+//login 
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+  }
 
-router.get('*', (req, res) => {
-  res.status(404).send("NOPE");
-
-})
-
-
+  res.render('login');
+});
 module.exports = router;
 });
