@@ -81,7 +81,6 @@ router.get('/sign-up', (req, res) => {
       res.redirect('/');
       return;
   }
-
   res.render('sign-up');
 });
 
@@ -91,8 +90,7 @@ router.get('/login', (req, res) => {
       res.redirect('/');
       return;
   }
-
   res.render('login');
 });
-module.exports = router;
 });
+module.exports = router;

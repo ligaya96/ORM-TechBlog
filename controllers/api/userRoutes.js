@@ -21,6 +21,7 @@ router.post('/', (req, res) => {
             res.status(500).json(err);
         });
 })
+
 router.post('/login', (req, res) => {
     User.findOne({
             where: {
@@ -34,7 +35,6 @@ router.post('/login', (req, res) => {
                 });
                 return;
             }
-
             req.session.save(() => {
                 req.session.user_id = dbUserData.id;
                 req.session.username = dbUserData.username;
@@ -92,6 +92,5 @@ router.get('/', (req, res) => {
             res.status(500).json(err);
         });
 });
-
 
 module.exports = router;

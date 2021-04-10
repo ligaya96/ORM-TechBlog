@@ -3,7 +3,6 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
 router.get("/", async (req, res) => {
     Comment.findAll()
         .then((dbCommentData) => res.json(dbCommentData))
@@ -28,6 +27,5 @@ router.post('/', withAuth, (req, res) => {
             });
     }
 });
-
 
 module.exports = router;
