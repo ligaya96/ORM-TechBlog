@@ -79,7 +79,6 @@ router.post('/logout', (req, res) => {
 
 });
 
-
 // All Users
 router.get('/', (req, res) => {
     User.findAll({
