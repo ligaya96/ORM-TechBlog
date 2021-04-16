@@ -2,7 +2,7 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
-
+// All Comments
 router.get("/", async (req, res) => {
     Comment.findAll()
         .then((dbCommentData) => res.json(dbCommentData))

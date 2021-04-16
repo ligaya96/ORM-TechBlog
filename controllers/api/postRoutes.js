@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 // post routes
 router.get("/", (req, res) => {
     Post.findAll({
-    attributes: ["id", "content", "title"],
+    attributes: ["id", "content", "title", "created_at"],
     order: [
        ["created_at", "DESC"]
     ],
@@ -53,7 +53,7 @@ router.delete("/:id", withAuth, (req, res) => {
     });
     return;
     }
-  res.json(dbPostData);
+   res.json(dbPostData);
   }).catch((err) => {
      console.log(err);
     res.status(500).json(err);
@@ -74,8 +74,8 @@ router.put("/:id", withAuth, (req, res) => {
        message: "Nothing found"
      });
     return;
-  }
-   res.json(dbPostData);
+     }
+    res.json(dbPostData);
     }).catch((err) => {
     console.log(err);
     res.status(500).json(err);
